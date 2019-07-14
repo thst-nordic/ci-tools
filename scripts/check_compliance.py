@@ -842,8 +842,11 @@ def report_to_github(repo, pull_request, sha, suite, docs):
     github_token = os.environ['GH_TOKEN']
     github_conn = Github(github_token)
 
+    print('report_to_github', repo)
     repo = github_conn.get_repo(repo)
+    print('report_to_github', repo)
     gh_pr = repo.get_pull(pull_request)
+    print('sha', sha)
     commit = repo.get_commit(sha)
 
     comment = "Found the following issues, please fix and resubmit:\n\n"
